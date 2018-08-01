@@ -67,13 +67,9 @@ export default class Tree extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     // Clone new data & assign internal properties
-    console.log('this.props.data: ', this.props.data);
-    console.log('nextProps.data: ', nextProps.data);
-    if (JSON.stringify(this.props.data) !== JSON.stringify(nextProps.data)) {
-      this.setState({
-        data: this.assignInternalProperties(clone(nextProps.data)),
-      });
-    }
+    this.setState({
+      data: this.assignInternalProperties(clone(nextProps.data)),
+    });
 
     this.internalState.d3 = this.calculateD3Geometry(nextProps);
 
